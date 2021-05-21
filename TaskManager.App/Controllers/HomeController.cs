@@ -30,18 +30,19 @@ namespace TaskManager.App.Controllers
             return View(model);
         }
 
-        public ActionResult Edit(int id)
-        {
-            var model = Db.Get(id);
-            return View(model);
-        }
-
         public ActionResult Delete(int id)
         {
             Task task = Db.Get(id);
             Db.Delete(task);
             return RedirectToAction("Overview");
         }
+
+        public ActionResult Edit(int id)
+        {
+            var model = Db.Get(id);
+            return View(model);
+        }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -50,9 +51,9 @@ namespace TaskManager.App.Controllers
             if(ModelState.IsValid)
             {
                 Db.Update(task);
-                return RedirectToAction("Details", task.Id);
+                return RedirectToAction("Details", new { id = task.Id });
             }
-            return View();
+            return View(task);
         }
 
         [HttpGet]
@@ -70,7 +71,7 @@ namespace TaskManager.App.Controllers
             Db.Add(task);
             return RedirectToAction("Overview");
             }
-            return View();
+            return View(task);
         }
     }
 }
