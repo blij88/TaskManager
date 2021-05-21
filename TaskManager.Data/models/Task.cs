@@ -14,13 +14,14 @@ namespace TaskManager.Data
         [MaxLength(30)]
         public string Name { get; set; }
         [MaxLength(500)]
+        [DataType(DataType.MultilineText)]
         public string Description { get; set; }
         [Required]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode =true)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [DataType(DataType.Date)]
         [Display(Name ="Start")]
         public DateTime StartDate { get; set; }
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [DataType(DataType.Date)]
         [Required]
         [Display(Name = "Finished")]
