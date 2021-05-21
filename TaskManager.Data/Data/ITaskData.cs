@@ -11,6 +11,7 @@ namespace TaskManager.Data
         void Add(Task task);
         Task Get(int id);
         void Delete(Task task);
+        void Update(Task task);
 
     }
 }

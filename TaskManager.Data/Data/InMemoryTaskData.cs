@@ -33,5 +33,9 @@ namespace TaskManager.Data
         {
             Tasks.Remove(task);
         }
+        public void Update(Task task)
+        {
+            
+        }
     }
 }

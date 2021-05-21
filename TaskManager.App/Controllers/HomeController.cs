@@ -21,10 +21,6 @@ namespace TaskManager.App.Controllers
         {
             var model = Db.GetAll();
 
-            foreach (var item in Db.GetAll())
-            {
-                Debug.WriteLine($"{item.Name}");
-            }
             return View(model);
         }
 
@@ -32,6 +28,31 @@ namespace TaskManager.App.Controllers
         {
             var model = Db.Get(id);
             return View(model);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var model = Db.Get(id);
+            return View(model);
+        }
+
+        public ActionResult Delete(int id)
+        {
+            Task task = Db.Get(id);
+            Db.Delete(task);
+            return RedirectToAction("Overview");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Task task)
+        {
+            if(ModelState.IsValid)
+            {
+                Db.Update(task);
+                return RedirectToAction("Details", task.Id);
+            }
+            return View();
         }
 
         [HttpGet]

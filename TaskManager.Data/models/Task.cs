@@ -16,11 +16,11 @@ namespace TaskManager.Data
         [MaxLength(500)]
         public string Description { get; set; }
         [Required]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode =true)]
         [DataType(DataType.Date)]
         [Display(Name ="Start")]
         public DateTime StartDate { get; set; }
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [DataType(DataType.Date)]
         [Required]
         [Display(Name = "Finished")]
