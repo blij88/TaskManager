@@ -16,9 +16,9 @@ namespace TaskManager.Data
                 new Task {Id = 3, Name = "Clean Computer", Description = "so Dirty", StartDate = new DateTime(2021,05,23), EndDate = new DateTime(2021,05,24), Progress = Progress.Done}
             };
         }
-        public IEnumerable<Task> GetAll()
+        public List<Task> GetAll()
         {
-            return Tasks.OrderBy(t => t.StartDate);
+            return Tasks.OrderBy(t => t.StartDate).ToList();
         }
         public void Add(Task task)
         {

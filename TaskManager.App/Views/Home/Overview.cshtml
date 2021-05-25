@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TaskManager.Data.Task>
+﻿@model TaskManager.App.ViewModels.OverviewViewModel
 
 @{
     ViewBag.Title = "Overview";
@@ -9,6 +9,12 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+<div>
+    @foreach (var item in Model.Late)
+    {
+    <Label class="alert-danger" style="width:45%">@($"{item.Name}: {item.StartDate.ToString("d")} - {item.EndDate.ToString("d")}")</Label>
+    }
+</div>
 <div style="float:left; border-right:solid">
     <table class="table" style="float:left">
         <tr>
@@ -23,7 +29,7 @@
             </th>
             <th></th>
         </tr>
-        @foreach (var item in Model)
+        @foreach (var item in Model.ToDo)
         {
             if (item.Progress == TaskManager.Data.Progress.ToDo)
             {
@@ -31,7 +37,8 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Name)
                     </td>
-                    <td>
+                    <td> 
+                    
                         @Html.DisplayFor(modelItem => item.StartDate)
                     </td>
                     <td>
@@ -59,10 +66,8 @@
             </th>
             <th></th>
         </tr>
-        @foreach (var item in Model)
+        @foreach (var item in Model.Doing)
         {
-            if (item.Progress == TaskManager.Data.Progress.Doing)
-            {
                 <tr>
                     <td>
                         @Html.DisplayFor(modelItem => item.Name)
@@ -76,8 +81,6 @@
                         @Html.ActionLink("Delete", "Delete", new { id = item.Id })
                     </td>
                 </tr>
-
-            }
         }
     </table>
 </div>
@@ -85,7 +88,7 @@
 <div style="float:left; border-right-style:solid">
     <table class="table" style="float:left">
         <tr>
-            <th>DONE</th>
+            <th>In Progress</th>
         </tr>
         <tr>
             <th>
@@ -96,25 +99,21 @@
             </th>
             <th></th>
         </tr>
-        @foreach (var item in Model)
+        @foreach (var item in Model.Done)
         {
-            if (item.Progress == TaskManager.Data.Progress.Done)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.StartDate)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                    </td>
-                </tr>
-
-            }
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
         }
     </table>
 </div>
