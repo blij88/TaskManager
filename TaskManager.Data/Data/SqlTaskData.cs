@@ -32,9 +32,9 @@ namespace TaskManager.Data
             return db.Tasks.FirstOrDefault(t => t.Id == id);
         }
 
-        public IEnumerable<Task> GetAll()
+        public List<Task> GetAll()
         {
-            return db.Tasks.OrderBy(s => s.StartDate);
+            return db.Tasks.OrderBy(s => s.StartDate).ToList();
         }
 
         public void Update(Task task)

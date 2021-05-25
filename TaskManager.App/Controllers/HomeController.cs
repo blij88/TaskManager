@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TaskManager.App.ViewModels;
 using TaskManager.Data;
 
 namespace TaskManager.App.Controllers
@@ -19,7 +20,8 @@ namespace TaskManager.App.Controllers
 
         public ActionResult Overview()
         {
-            var model = Db.GetAll();
+            List<Task> task = Db.GetAll();
+            var model = new OverviewViewModel(task);
 
             return View(model);
         }
