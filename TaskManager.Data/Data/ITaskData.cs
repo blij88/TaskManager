@@ -7,7 +7,7 @@ namespace TaskManager.Data
 {
     public interface ITaskData
     {
-        IEnumerable<Task> GetAll();
+        List<Task> GetAll();
         void Add(Task task);
         Task Get(int id);
         void Delete(Task task);
