@@ -7,7 +7,10 @@
 <h2>Overview</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create new task", "Create")
+</p>
+<p>
+    @Html.ActionLink("Add new contact", "AddContacts")
 </p>
 <div>
     @foreach (var item in Model.Late)
@@ -128,18 +131,18 @@
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.StartDate)
+                @Html.DisplayNameFor(model => model.Contacts)
             </th>
             <th></th>
         </tr>
-        @foreach (var item in Model.Doing)
+        @foreach (var item in Model.Contacts)
         {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.StartDate)
+                    @Html.DisplayFor(modelItem => item.ContactInfo)
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |

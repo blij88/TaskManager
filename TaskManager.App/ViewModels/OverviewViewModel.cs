@@ -1,20 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
-using System.Linq;
-using System.Web;
 using TaskManager.Data;
 
 namespace TaskManager.App.ViewModels
 {
-    public class OverviewViewModel: Data.models.Task
+    public class OverviewViewModel : Data.models.Task
     {
-        public List<Data.models.Task> Task{ get; set; }
+        public List<Data.models.Task> Task { get; set; }
         public List<Data.models.Task> ToDo { get; } = new List<Data.models.Task>();
-        public List<Data.models.Task> Doing { get;} = new List<Data.models.Task>();
-        public List<Data.models.Task> Done { get;} = new List<Data.models.Task>();
-        public List<Data.models.Task> Late { get;} = new List<Data.models.Task>();
+        public List<Data.models.Task> Doing { get; } = new List<Data.models.Task>();
+        public List<Data.models.Task> Done { get; } = new List<Data.models.Task>();
+        public List<Data.models.Task> Late { get; } = new List<Data.models.Task>();
+        public List<Data.models.PeopleWhoCanHelp> Contacts { get; } = new List<Data.models.PeopleWhoCanHelp>();
 
 
         private void SplitTask()
@@ -42,7 +40,7 @@ namespace TaskManager.App.ViewModels
         private void LateTask()
         {
             foreach (var task in Task)
-            {            
+            {
                 if ((task.StartDate.Date <= DateTime.Today.Date && task.Progress == Progress.ToDo) || (task.EndDate <= DateTime.Today && task.Progress != Progress.Done))
                 {
                     Late.Add(task);

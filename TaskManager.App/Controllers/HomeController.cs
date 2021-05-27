@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using TaskManager.App.ViewModels;
 using TaskManager.Data;
@@ -50,7 +46,7 @@ namespace TaskManager.App.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Task task)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 Db.Update(task);
                 return RedirectToAction("Details", new { id = task.Id });
@@ -70,8 +66,25 @@ namespace TaskManager.App.Controllers
         {
             if (ModelState.IsValid)
             {
-            Db.Add(task);
-            return RedirectToAction("Overview");
+                Db.Add(task);
+                return RedirectToAction("Overview");
+            }
+            return View(task);
+        }
+        [HttpGet]
+        public ActionResult AddContacts()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddContact(Task task)
+        {
+            if (ModelState.IsValid)
+            {
+                Db.Add(task);
+                return RedirectToAction("Overview");
             }
             return View(task);
         }

@@ -8,7 +8,7 @@ namespace TaskManager.Data
     public class InMemoryTaskData : ITaskData
     {
         readonly List<Task> Tasks;
-        public InMemoryTaskData ()
+        public InMemoryTaskData()
         {
             Tasks = new List<Task>
             {
@@ -30,13 +30,13 @@ namespace TaskManager.Data
         {
             return Tasks.FirstOrDefault(t => t.Id == id);
         }
-        public void Delete(Task task) 
+        public void Delete(Task task)
         {
             Tasks.Remove(task);
         }
         public void Update(Task task)
         {
-            
+
         }
     }
 }

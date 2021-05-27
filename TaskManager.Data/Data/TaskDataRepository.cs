@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TaskManager.Data
 {
@@ -18,6 +15,11 @@ namespace TaskManager.Data
         public void Add(models.Task task)
         {
             db.Tasks.Add(task);
+            db.SaveChanges();
+        }
+        public void AddContact(models.PeopleWhoCanHelp peopleWhoCanHelp)
+        {
+            db.PeopleWhoCanHelps.Add(peopleWhoCanHelp);
             db.SaveChanges();
         }
 
