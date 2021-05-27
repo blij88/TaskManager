@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using TaskManager.Data.models;
 
 namespace TaskManager.Data
 {
     public class InMemoryTaskData : ITaskData
     {
-        List<Task> Tasks;
+        readonly List<Task> Tasks;
         public InMemoryTaskData ()
         {
             Tasks = new List<Task>

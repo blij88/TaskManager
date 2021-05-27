@@ -6,16 +6,16 @@ using System.Web;
 using System.Web.Mvc;
 using TaskManager.App.ViewModels;
 using TaskManager.Data;
+using TaskManager.Data.models;
 
 namespace TaskManager.App.Controllers
 {
     public class HomeController : Controller
     {
-        private TaskManagerDbContext db = new TaskManagerDbContext();
-        private readonly ITaskData Db;
+        private readonly TaskDataRepository Db;
         public HomeController()
         {
-            Db = new SqlTaskData(db);
+            Db = new TaskDataRepository();
         }
 
         public ActionResult Overview()
