@@ -8,13 +8,13 @@ using TaskManager.Data;
 
 namespace TaskManager.App.ViewModels
 {
-    public class OverviewViewModel: Task
+    public class OverviewViewModel: Data.models.Task
     {
-        public List<Task> Task{ get; set; }
-        public List<Task> ToDo { get; } = new List<Task>();
-        public List<Task> Doing { get;} = new List<Task>();
-        public List<Task> Done { get;} = new List<Task>();
-        public List<Task> Late { get;} = new List<Task>();
+        public List<Data.models.Task> Task{ get; set; }
+        public List<Data.models.Task> ToDo { get; } = new List<Data.models.Task>();
+        public List<Data.models.Task> Doing { get;} = new List<Data.models.Task>();
+        public List<Data.models.Task> Done { get;} = new List<Data.models.Task>();
+        public List<Data.models.Task> Late { get;} = new List<Data.models.Task>();
 
 
         private void SplitTask()
@@ -51,7 +51,7 @@ namespace TaskManager.App.ViewModels
             }
         }
 
-        public OverviewViewModel(List<Task> task)
+        public OverviewViewModel(List<Data.models.Task> task)
         {
             Task = task;
             SplitTask();

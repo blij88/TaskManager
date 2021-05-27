@@ -7,37 +7,37 @@ using System.Threading.Tasks;
 
 namespace TaskManager.Data
 {
-    public class SqlTaskData : ITaskData
+    public class TaskDataRepository : ITaskData
     {
         private readonly TaskManagerDbContext db;
-        public SqlTaskData(TaskManagerDbContext db)
+        public TaskDataRepository()
         {
-            this.db = db;
+            this.db = new TaskManagerDbContext();
         }
 
-        public void Add(Task task)
+        public void Add(models.Task task)
         {
             db.Tasks.Add(task);
             db.SaveChanges();
         }
 
-        public void Delete(Task task)
+        public void Delete(models.Task task)
         {
             db.Tasks.Remove(task);
             db.SaveChanges();
         }
 
-        public Task Get(int id)
+        public models.Task Get(int id)
         {
             return db.Tasks.FirstOrDefault(t => t.Id == id);
         }
 
-        public List<Task> GetAll()
+        public List<models.Task> GetAll()
         {
             return db.Tasks.OrderBy(s => s.StartDate).ToList();
         }
 
-        public void Update(Task task)
+        public void Update(models.Task task)
         {
             var entry = db.Entry(task);
             entry.State = EntityState.Modified;
