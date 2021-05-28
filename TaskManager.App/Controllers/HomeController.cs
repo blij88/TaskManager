@@ -71,6 +71,7 @@ namespace TaskManager.App.Controllers
             }
             return View(task);
         }
+
         [HttpGet]
         public ActionResult AddContacts()
         {
@@ -79,14 +80,14 @@ namespace TaskManager.App.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddContact(Task task)
+        public ActionResult AddContacts(PeopleWhoCanHelp peopleWhoCanHelp)
         {
             if (ModelState.IsValid)
             {
-                Db.Add(task);
+                Db.AddContact(peopleWhoCanHelp);
                 return RedirectToAction("Overview");
             }
-            return View(task);
+            return View(peopleWhoCanHelp);
         }
     }
 }
