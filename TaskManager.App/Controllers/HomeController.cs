@@ -74,6 +74,39 @@ namespace TaskManager.App.Controllers
             return View(task);
         }
 
+        public ActionResult DetailsContact(int id)
+        {
+            var model = Db.GetContact(id);
+            return View(model);
+        }
+
+        public ActionResult DeleteContact(int id)
+        {
+            PeopleWhoCanHelp peopleWhoCanHelp = Db.GetContact(id);
+            Db.DeleteContact(peopleWhoCanHelp);
+            return RedirectToAction("Overview");
+        }
+
+        public ActionResult EditContact(int id)
+        {
+            var model = Db.Get(id);
+            return View(model);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditContact(PeopleWhoCanHelp peopleWhoCanHelp)
+        {
+            if (ModelState.IsValid)
+            {
+                Db.UpdateContact(peopleWhoCanHelp);
+                return RedirectToAction("Details", new { id = peopleWhoCanHelp.Id });
+            }
+            return View(peopleWhoCanHelp);
+        }
+
+
         [HttpGet]
         public ActionResult AddContacts()
         {
