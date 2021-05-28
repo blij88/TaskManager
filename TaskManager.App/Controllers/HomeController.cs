@@ -8,7 +8,7 @@ namespace TaskManager.App.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly TaskDataRepository Db;
+        private readonly ITaskData Db;
         public HomeController()
         {
             Db = new TaskDataRepository();
@@ -18,6 +18,8 @@ namespace TaskManager.App.Controllers
         {
             List<Task> task = Db.GetAll();
             var model = new OverviewViewModel(task);
+
+            model.Contacts = Db.GetAllContacts();
 
             return View(model);
         }
@@ -84,7 +86,7 @@ namespace TaskManager.App.Controllers
         {
             if (ModelState.IsValid)
             {
-                Db.AddContact(peopleWhoCanHelp);
+               // Db.AddContact(peopleWhoCanHelp);
                 return RedirectToAction("Overview");
             }
             return View(peopleWhoCanHelp);

@@ -5,7 +5,7 @@ using TaskManager.Data.models;
 
 namespace TaskManager.Data
 {
-    public class InMemoryTaskData : ITaskData
+    public class InMemoryTaskData// : ITaskData
     {
         readonly List<Task> Tasks;
         public InMemoryTaskData()

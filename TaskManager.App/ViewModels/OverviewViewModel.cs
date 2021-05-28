@@ -12,8 +12,7 @@ namespace TaskManager.App.ViewModels
         public List<Data.models.Task> Doing { get; } = new List<Data.models.Task>();
         public List<Data.models.Task> Done { get; } = new List<Data.models.Task>();
         public List<Data.models.Task> Late { get; } = new List<Data.models.Task>();
-        public List<Data.models.PeopleWhoCanHelp> Contacts { get; } = new List<Data.models.PeopleWhoCanHelp>();
-
+        public List<Data.models.PeopleWhoCanHelp> Contacts { get; set; } = new List<Data.models.PeopleWhoCanHelp>();
 
         private void SplitTask()
         {
@@ -49,11 +48,14 @@ namespace TaskManager.App.ViewModels
             }
         }
 
-        private void ContactOverview()
+        private void ContactsListing()
         {
             foreach (var contact in Contacts)
             {
                 // Do something?
+                // It saves to database.
+                // Assuming I can pull from database, I need to somehow get this into the OverViewModel below,
+                //      even though that at the moment is hard coded to only take task related stuff.
             }
         }
 
