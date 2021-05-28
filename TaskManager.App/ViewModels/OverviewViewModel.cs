@@ -49,6 +49,14 @@ namespace TaskManager.App.ViewModels
             }
         }
 
+        private void ContactOverview()
+        {
+            foreach (var contact in Contacts)
+            {
+                // Do something?
+            }
+        }
+
         public OverviewViewModel(List<Data.models.Task> task)
         {
             Task = task;
