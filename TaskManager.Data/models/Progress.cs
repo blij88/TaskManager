@@ -2,8 +2,8 @@
 {
     public enum Progress
     {
-        ToDo, 
-        Doing, 
+        ToDo,
+        Doing,
         Done
     }
 }

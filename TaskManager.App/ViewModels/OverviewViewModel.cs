@@ -1,21 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
-using System.Linq;
-using System.Web;
 using TaskManager.Data;
 
 namespace TaskManager.App.ViewModels
 {
-    public class OverviewViewModel: Task
+    public class OverviewViewModel : Data.models.Task
     {
-        public List<Task> Task{ get; set; }
-        public List<Task> ToDo { get; } = new List<Task>();
-        public List<Task> Doing { get;} = new List<Task>();
-        public List<Task> Done { get;} = new List<Task>();
-        public List<Task> Late { get;} = new List<Task>();
-
+        public List<Data.models.Task> Task { get; set; }
+        public List<Data.models.Task> ToDo { get; } = new List<Data.models.Task>();
+        public List<Data.models.Task> Doing { get; } = new List<Data.models.Task>();
+        public List<Data.models.Task> Done { get; } = new List<Data.models.Task>();
+        public List<Data.models.Task> Late { get; } = new List<Data.models.Task>();
+        public List<Data.models.PeopleWhoCanHelp> Contacts { get; set; } = new List<Data.models.PeopleWhoCanHelp>();
 
         private void SplitTask()
         {
@@ -42,7 +39,7 @@ namespace TaskManager.App.ViewModels
         private void LateTask()
         {
             foreach (var task in Task)
-            {            
+            {
                 if ((task.StartDate.Date <= DateTime.Today.Date && task.Progress == Progress.ToDo) || (task.EndDate <= DateTime.Today && task.Progress != Progress.Done))
                 {
                     Late.Add(task);
@@ -51,7 +48,18 @@ namespace TaskManager.App.ViewModels
             }
         }
 
-        public OverviewViewModel(List<Task> task)
+        private void ContactsListing()
+        {
+            foreach (var contact in Contacts)
+            {
+                // Do something?
+                // It saves to database.
+                // Assuming I can pull from database, I need to somehow get this into the OverViewModel below,
+                //      even though that at the moment is hard coded to only take task related stuff.
+            }
+        }
+
+        public OverviewViewModel(List<Data.models.Task> task)
         {
             Task = task;
             SplitTask();

@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using TaskManager.Data.models;
 
 namespace TaskManager.Data
 {
@@ -13,5 +11,10 @@ namespace TaskManager.Data
         void Delete(Task task);
         void Update(Task task);
 
+        List<PeopleWhoCanHelp> GetAllContacts();
+        void AddContact(PeopleWhoCanHelp peopleWhoCanHelp);
+        PeopleWhoCanHelp GetContact(int id);
+        void DeleteContact(PeopleWhoCanHelp peopleWhoCanHelp);
+        void UpdateContact(PeopleWhoCanHelp peopleWhoCanHelp);
     }
 }

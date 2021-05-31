@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using TaskManager.Data.models;
 
 namespace TaskManager.Data
 {
-    public class InMemoryTaskData : ITaskData
+    public class InMemoryTaskData// : ITaskData
     {
-        List<Task> Tasks;
-        public InMemoryTaskData ()
+        readonly List<Task> Tasks;
+        public InMemoryTaskData()
         {
             Tasks = new List<Task>
             {
@@ -29,13 +30,13 @@ namespace TaskManager.Data
         {
             return Tasks.FirstOrDefault(t => t.Id == id);
         }
-        public void Delete(Task task) 
+        public void Delete(Task task)
         {
             Tasks.Remove(task);
         }
         public void Update(Task task)
         {
-            
+
         }
     }
 }
