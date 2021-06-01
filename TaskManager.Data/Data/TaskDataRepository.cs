@@ -13,29 +13,29 @@ namespace TaskManager.Data
             this.db = new TaskManagerDbContext();
         }
 
-        public void Add(Task task)
+        public void Add(Chore task)
         {
             db.Tasks.Add(task);
             db.SaveChanges();
         }
 
-        public void Delete(Task task)
+        public void Delete(Chore task)
         {
             db.Tasks.Remove(task);
             db.SaveChanges();
         }
 
-        public Task Get(int id)
+        public Chore Get(int id)
         {
             return db.Tasks.FirstOrDefault(t => t.Id == id);
         }
 
-        public List<Task> GetAll()
+        public List<Chore> GetAll()
         {
             return db.Tasks.OrderBy(s => s.StartDate).ToList();
         }
 
-        public void Update(Task task)
+        public void Update(Chore task)
         {
             var entry = db.Entry(task);
             entry.State = EntityState.Modified;

@@ -7,34 +7,34 @@ namespace TaskManager.Data
 {
     public class InMemoryTaskData// : ITaskData
     {
-        readonly List<Task> Tasks;
+        readonly List<Chore> Tasks;
         public InMemoryTaskData()
         {
-            Tasks = new List<Task>
+            Tasks = new List<Chore>
             {
-                new Task {Id = 1, Name = "Groceries", Description = "at Lidl", StartDate = DateTime.Today, EndDate = new DateTime(2021,05,21), Progress = Progress.ToDo},
-                new Task {Id = 2, Name = "Read", Description = "Introduction to C#", StartDate = new DateTime(2021,05,19), EndDate = new DateTime(2021,05,22), Progress = Progress.Doing},
-                new Task {Id = 3, Name = "Clean Computer", Description = "so Dirty", StartDate = new DateTime(2021,05,23), EndDate = new DateTime(2021,05,24), Progress = Progress.Done}
+                new Chore {Id = 1, Name = "Groceries", Description = "at Lidl", StartDate = DateTime.Today, EndDate = new DateTime(2021,05,21), Progress = Progress.ToDo},
+                new Chore {Id = 2, Name = "Read", Description = "Introduction to C#", StartDate = new DateTime(2021,05,19), EndDate = new DateTime(2021,05,22), Progress = Progress.Doing},
+                new Chore {Id = 3, Name = "Clean Computer", Description = "so Dirty", StartDate = new DateTime(2021,05,23), EndDate = new DateTime(2021,05,24), Progress = Progress.Done}
             };
         }
-        public List<Task> GetAll()
+        public List<Chore> GetAll()
         {
             return Tasks.OrderBy(t => t.StartDate).ToList();
         }
-        public void Add(Task task)
+        public void Add(Chore task)
         {
             Tasks.Add(task);
             task.Id = Tasks.Max(t => t.Id) + 1;
         }
-        public Task Get(int id)
+        public Chore Get(int id)
         {
             return Tasks.FirstOrDefault(t => t.Id == id);
         }
-        public void Delete(Task task)
+        public void Delete(Chore task)
         {
             Tasks.Remove(task);
         }
-        public void Update(Task task)
+        public void Update(Chore task)
         {
 
         }

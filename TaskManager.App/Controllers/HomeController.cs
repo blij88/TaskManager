@@ -16,7 +16,7 @@ namespace TaskManager.App.Controllers
 
         public ActionResult Overview()
         {
-            List<Task> task = Db.GetAll();
+            List<Chore> task = Db.GetAll();
             var model = new OverviewViewModel(task);
 
             model.Contacts = Db.GetAllContacts();
@@ -32,7 +32,7 @@ namespace TaskManager.App.Controllers
 
         public ActionResult Delete(int id)
         {
-            Task task = Db.Get(id);
+            Chore task = Db.Get(id);
             Db.Delete(task);
             return RedirectToAction("Overview");
         }
@@ -46,7 +46,7 @@ namespace TaskManager.App.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Task task)
+        public ActionResult Edit(Chore task)
         {
             if (ModelState.IsValid)
             {
@@ -64,7 +64,7 @@ namespace TaskManager.App.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Task task)
+        public ActionResult Create(Chore task)
         {
             if (ModelState.IsValid)
             {

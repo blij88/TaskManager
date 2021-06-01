@@ -5,13 +5,13 @@ using TaskManager.Data;
 
 namespace TaskManager.App.ViewModels
 {
-    public class OverviewViewModel : Data.models.Task
+    public class OverviewViewModel : Data.models.Chore
     {
-        public List<Data.models.Task> Task { get; set; }
-        public List<Data.models.Task> ToDo { get; } = new List<Data.models.Task>();
-        public List<Data.models.Task> Doing { get; } = new List<Data.models.Task>();
-        public List<Data.models.Task> Done { get; } = new List<Data.models.Task>();
-        public List<Data.models.Task> Late { get; } = new List<Data.models.Task>();
+        public List<Data.models.Chore> Task { get; set; }
+        public List<Data.models.Chore> ToDo { get; } = new List<Data.models.Chore>();
+        public List<Data.models.Chore> Doing { get; } = new List<Data.models.Chore>();
+        public List<Data.models.Chore> Done { get; } = new List<Data.models.Chore>();
+        public List<Data.models.Chore> Late { get; } = new List<Data.models.Chore>();
         public List<Data.models.PeopleWhoCanHelp> Contacts { get; set; } = new List<Data.models.PeopleWhoCanHelp>();
 
         private void SplitTask()
@@ -59,7 +59,7 @@ namespace TaskManager.App.ViewModels
             }
         }
 
-        public OverviewViewModel(List<Data.models.Task> task)
+        public OverviewViewModel(List<Data.models.Chore> task)
         {
             Task = task;
             SplitTask();

@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace TaskManager.Data.models
 {
-    public class Task
+    public class Chore
     {
         public int Id { get; set; }
         [Required]
@@ -23,5 +24,6 @@ namespace TaskManager.Data.models
         [Display(Name = "Finished")]
         public DateTime EndDate { get; set; }
         public Progress Progress { get; set; }
+        public ICollection<File> Files { get; set; }
     }
 }

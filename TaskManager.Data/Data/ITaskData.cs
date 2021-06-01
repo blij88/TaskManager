@@ -5,11 +5,11 @@ namespace TaskManager.Data
 {
     public interface ITaskData
     {
-        List<Task> GetAll();
-        void Add(Task task);
-        Task Get(int id);
-        void Delete(Task task);
-        void Update(Task task);
+        List<Chore> GetAll();
+        void Add(Chore task);
+        Chore Get(int id);
+        void Delete(Chore task);
+        void Update(Chore task);
 
         List<PeopleWhoCanHelp> GetAllContacts();
         void AddContact(PeopleWhoCanHelp peopleWhoCanHelp);

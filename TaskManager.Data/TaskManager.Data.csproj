@@ -64,9 +64,10 @@
       <DependentUpon>202105271029210_AddedContacts.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="models\File.cs" />
     <Compile Include="models\PeopleWhoCanHelp.cs" />
     <Compile Include="models\Progress.cs" />
-    <Compile Include="models\Task.cs" />
+    <Compile Include="models\Chore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
