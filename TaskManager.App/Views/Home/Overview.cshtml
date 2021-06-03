@@ -7,121 +7,50 @@
 <h2>Overview</h2>
 
 <p>
-    @Html.ActionLink("Create new task", "Create")
-</p>
-<p>
+    @Html.ActionLink("Create new task", "Create")<br />
     @Html.ActionLink("Add new contact", "AddContacts")
 </p>
-<div>
-    @foreach (var item in Model.Late)
-    {
-    <Label class="alert-danger" style="width:45%">@($"{item.Name}: {item.StartDate.ToString("d")} - {item.EndDate.ToString("d")}")</Label>
-    }
-</div>
-<div style="float:left; border-right:solid">
-    <table class="table" style="float:left">
-        <tr>
-            <th>TO DO</th>
-        </tr>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StartDate)
-            </th>
-            <th></th>
-        </tr>
+<p>
+    
+</p>
+<div style="float:left; width:30%">
+    <div class="panel-group">
+        <h3>TO-DO</h3>
         @foreach (var item in Model.ToDo)
         {
-            if (item.Progress == TaskManager.Data.Progress.ToDo)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td> 
-                    
-                        @Html.DisplayFor(modelItem => item.StartDate)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id=item.Id}) |
-                        @Html.ActionLink("Details", "Details", new {  id=item.Id }) |
-                        @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-                    </td>
-                </tr>
+            @Html.Partial("_ChoreOverview", item)
 
-            }
         }
-    </table>
+
+    </div>
 </div>
-<div style="float:left; border-right-style:solid">
-    <table class="table" style="float:left">
-        <tr>
-            <th>In Progress</th>
-        </tr>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StartDate)
-            </th>
-            <th></th>
-        </tr>
+
+<div style="float:left; width:30%; padding-left:10px; border-left:1px solid grey">
+    <div class="panel-group">
+        <h3>In Progress</h3>
         @foreach (var item in Model.Doing)
         {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.StartDate)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                    </td>
-                </tr>
+            @Html.Partial("_ChoreOverview", item)
+
         }
-    </table>
+
+    </div>
 </div>
 
-<div style="float:left; border-right-style:solid">
-    <table class="table" style="float:left">
-        <tr>
-            <th>In Progress</th>
-        </tr>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StartDate)
-            </th>
-            <th></th>
-        </tr>
+<div style="float:left; width:30%; padding-left:10px">
+    <div class="panel-group">
+        <h3>Done</h3>
         @foreach (var item in Model.Done)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.StartDate)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                </td>
-            </tr>
+            @Html.Partial("_ChoreOverview", item)
+
         }
-    </table>
+
+    </div>
 </div>
 
-<div style="float:left; border-right-style:solid">
+
+<div>
     <table class="table" style="float:left">
         <tr>
             <th>People who can help</th>

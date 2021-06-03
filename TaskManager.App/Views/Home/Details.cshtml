@@ -1,4 +1,4 @@
-﻿@model TaskManager.Data.models.Task
+﻿@model TaskManager.Data.models.Chore
 
 @{
     ViewBag.Title = "Details";
@@ -49,6 +49,20 @@
         <dd>
             @Html.DisplayFor(model => model.EndDate)
         </dd>
+
+        @if (Model.Files.Count > 0)
+        {
+            <dt>
+                Files
+            </dt>
+        }
+        @foreach (var item in Model.Files)
+        {
+            <dd>
+                <img src="@item.FileName" alt="file" />
+            </dd>
+        }
+
 
     </dl>
 </div>

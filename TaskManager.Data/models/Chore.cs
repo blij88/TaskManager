@@ -25,5 +25,16 @@ namespace TaskManager.Data.models
         public DateTime EndDate { get; set; }
         public Progress Progress { get; set; }
         public ICollection<File> Files { get; set; }
+        public string Late()
+        {
+            if ((Progress == Progress.ToDo && DateTime.Today>StartDate )|| (Progress!= Progress.Done && EndDate < DateTime.Today))
+            {
+                return "danger";
+            }
+            else
+            {
+                return "info";
+            }
+        }
     }
 }

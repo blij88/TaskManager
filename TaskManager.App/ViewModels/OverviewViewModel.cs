@@ -11,7 +11,6 @@ namespace TaskManager.App.ViewModels
         public List<Data.models.Chore> ToDo { get; } = new List<Data.models.Chore>();
         public List<Data.models.Chore> Doing { get; } = new List<Data.models.Chore>();
         public List<Data.models.Chore> Done { get; } = new List<Data.models.Chore>();
-        public List<Data.models.Chore> Late { get; } = new List<Data.models.Chore>();
         public List<Data.models.PeopleWhoCanHelp> Contacts { get; set; } = new List<Data.models.PeopleWhoCanHelp>();
 
         private void SplitTask()
@@ -36,18 +35,6 @@ namespace TaskManager.App.ViewModels
             }
         }
 
-        private void LateTask()
-        {
-            foreach (var task in Task)
-            {
-                if ((task.StartDate.Date <= DateTime.Today.Date && task.Progress == Progress.ToDo) || (task.EndDate <= DateTime.Today && task.Progress != Progress.Done))
-                {
-                    Late.Add(task);
-                }
-
-            }
-        }
-
         private void ContactsListing()
         {
             foreach (var contact in Contacts)
@@ -63,7 +50,6 @@ namespace TaskManager.App.ViewModels
         {
             Task = task;
             SplitTask();
-            LateTask();
         }
 
 

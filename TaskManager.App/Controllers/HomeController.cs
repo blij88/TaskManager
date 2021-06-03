@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Web;
 using System.Web.Mvc;
 using TaskManager.App.ViewModels;
 using TaskManager.Data;
@@ -46,14 +47,31 @@ namespace TaskManager.App.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Chore task)
+        public ActionResult Edit(Chore chore, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
-                Db.Update(task);
-                return RedirectToAction("Details", new { id = task.Id });
+                if (upload != null && upload.ContentLength > 0)
+                {
+                    var file = new File
+                    {
+                        FileName = System.IO.Path.GetFileName(upload.FileName),
+                        ContentType = upload.ContentType,
+                        chore = chore
+                    };
+                    using (var reader = new System.IO.BinaryReader(upload.InputStream))
+                    {
+                        file.Content = reader.ReadBytes(upload.ContentLength);
+                    }
+                    Db.AddFile(file);
+
+                    chore.Files.Add(file);
+                }
+
+                Db.Update(chore);
+                return RedirectToAction("Details", new { id = chore.Id });
             }
-            return View(task);
+            return View(chore);
         }
 
         [HttpGet]

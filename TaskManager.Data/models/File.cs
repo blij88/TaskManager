@@ -16,6 +16,7 @@ namespace TaskManager.Data.models
         [StringLength(100)]
         public string ContentType { get; set; }
         public byte[] Content { get; set; }
-        public virtual Chore task { get; set; }
+        [Required]
+        public virtual Chore chore { get; set; }
     }
 }

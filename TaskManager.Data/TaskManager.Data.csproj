@@ -63,6 +63,22 @@
     <Compile Include="Migrations\202105271029210_AddedContacts.designer.cs">
       <DependentUpon>202105271029210_AddedContacts.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106010901082_AddFile.cs" />
+    <Compile Include="Migrations\202106010901082_AddFile.designer.cs">
+      <DependentUpon>202106010901082_AddFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106011025327_AddFile2.cs" />
+    <Compile Include="Migrations\202106011025327_AddFile2.designer.cs">
+      <DependentUpon>202106011025327_AddFile2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106011050545_AddFiles3.cs" />
+    <Compile Include="Migrations\202106011050545_AddFiles3.designer.cs">
+      <DependentUpon>202106011050545_AddFiles3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106030855576_AddLateToChore.cs" />
+    <Compile Include="Migrations\202106030855576_AddLateToChore.designer.cs">
+      <DependentUpon>202106030855576_AddLateToChore.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="models\File.cs" />
     <Compile Include="models\PeopleWhoCanHelp.cs" />
@@ -80,6 +96,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105271029210_AddedContacts.resx">
       <DependentUpon>202105271029210_AddedContacts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106010901082_AddFile.resx">
+      <DependentUpon>202106010901082_AddFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106011025327_AddFile2.resx">
+      <DependentUpon>202106011025327_AddFile2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106011050545_AddFiles3.resx">
+      <DependentUpon>202106011050545_AddFiles3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106030855576_AddLateToChore.resx">
+      <DependentUpon>202106030855576_AddLateToChore.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

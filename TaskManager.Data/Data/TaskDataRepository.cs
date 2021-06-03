@@ -27,12 +27,18 @@ namespace TaskManager.Data
 
         public Chore Get(int id)
         {
-            return db.Tasks.FirstOrDefault(t => t.Id == id);
+            return db.Tasks.Include(t => t.Files).FirstOrDefault(t => t.Id == id);
         }
 
         public List<Chore> GetAll()
         {
             return db.Tasks.OrderBy(s => s.StartDate).ToList();
+        }
+
+        public void AddFile(File file)
+        {
+            db.Files.Add(file);
+            db.SaveChanges();
         }
 
         public void Update(Chore task)
