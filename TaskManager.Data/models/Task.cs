@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TaskManager.Data.models
 {
@@ -23,5 +24,7 @@ namespace TaskManager.Data.models
         [Display(Name = "Finished")]
         public DateTime EndDate { get; set; }
         public Progress Progress { get; set; }
+        [Display(Name = "Who can help")]
+        public PeopleWhoCanHelp WhoCanHelp { get; set; }
     }
 }

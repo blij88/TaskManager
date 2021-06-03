@@ -39,21 +39,34 @@ namespace TaskManager.App.Controllers
 
         public ActionResult Edit(int id)
         {
-            var model = Db.Get(id);
+            //Make empty EditViewModel
+            EditViewModel model = new EditViewModel
+            {
+                //Fill with the specific task data
+                task = Db.Get(id),
+                //Get all people who can help saved to a list
+                listPeopleWhoCanHelp = Db.GetAllContacts()
+            };
             return View(model);
         }
 
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Task task)
+        public ActionResult Edit(EditViewModel editViewModel)
         {
+            //Save information on button press
             if (ModelState.IsValid)
             {
-                Db.Update(task);
-                return RedirectToAction("Details", new { id = task.Id });
+                //Get the contact Id of whoever can help
+                editViewModel.task.WhoCanHelp = Db.GetContact(editViewModel.PeopleWhoCanHelpId);
+                //Update the database with provided information
+                Db.Update(editViewModel.task);
+                //Go to details page of contact
+                return RedirectToAction("Details", new { id = editViewModel.task.Id });
             }
-            return View(task);
+            //In case ModelState != valid, get all contacts anyway and return them.
+            editViewModel.listPeopleWhoCanHelp = Db.GetAllContacts();
+            return View(editViewModel);
         }
 
         [HttpGet]

@@ -63,6 +63,10 @@
     <Compile Include="Migrations\202105271029210_AddedContacts.designer.cs">
       <DependentUpon>202105271029210_AddedContacts.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106031201018_Added-WhoCanHelp.cs" />
+    <Compile Include="Migrations\202106031201018_Added-WhoCanHelp.designer.cs">
+      <DependentUpon>202106031201018_Added-WhoCanHelp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="models\PeopleWhoCanHelp.cs" />
     <Compile Include="models\Progress.cs" />
@@ -79,6 +83,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105271029210_AddedContacts.resx">
       <DependentUpon>202105271029210_AddedContacts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106031201018_Added-WhoCanHelp.resx">
+      <DependentUpon>202106031201018_Added-WhoCanHelp.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
