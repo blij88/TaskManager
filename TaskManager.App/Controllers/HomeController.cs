@@ -89,7 +89,7 @@ namespace TaskManager.App.Controllers
 
         public ActionResult EditContact(int id)
         {
-            var model = Db.Get(id);
+            var model = Db.GetContact(id);
             return View(model);
         }
 
