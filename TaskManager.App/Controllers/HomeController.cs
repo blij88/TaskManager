@@ -101,7 +101,7 @@ namespace TaskManager.App.Controllers
             if (ModelState.IsValid)
             {
                 Db.UpdateContact(peopleWhoCanHelp);
-                return RedirectToAction("Details", new { id = peopleWhoCanHelp.Id });
+                return RedirectToAction("DetailsContact", new { id = peopleWhoCanHelp.Id });
             }
             return View(peopleWhoCanHelp);
         }
@@ -119,7 +119,7 @@ namespace TaskManager.App.Controllers
         {
             if (ModelState.IsValid)
             {
-               // Db.AddContact(peopleWhoCanHelp);
+                Db.AddContact(peopleWhoCanHelp);
                 return RedirectToAction("Overview");
             }
             return View(peopleWhoCanHelp);
