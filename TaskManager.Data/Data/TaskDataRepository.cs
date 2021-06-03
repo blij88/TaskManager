@@ -42,7 +42,7 @@ namespace TaskManager.Data
             db.SaveChanges();
         }
 
-        public void AddContact(PeopleWhoCanHelp peopleWhoCanHelp)
+        public void CreateContact(PeopleWhoCanHelp peopleWhoCanHelp)
         {
             db.PeopleWhoCanHelps.Add(peopleWhoCanHelp);
             db.SaveChanges();

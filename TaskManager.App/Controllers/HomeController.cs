@@ -108,18 +108,18 @@ namespace TaskManager.App.Controllers
 
 
         [HttpGet]
-        public ActionResult AddContacts()
+        public ActionResult CreateContact()
         {
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddContacts(PeopleWhoCanHelp peopleWhoCanHelp)
+        public ActionResult CreateContact(PeopleWhoCanHelp peopleWhoCanHelp)
         {
             if (ModelState.IsValid)
             {
-                Db.AddContact(peopleWhoCanHelp);
+                Db.CreateContact(peopleWhoCanHelp);
                 return RedirectToAction("Overview");
             }
             return View(peopleWhoCanHelp);

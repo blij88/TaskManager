@@ -1,12 +1,12 @@
 ﻿@model TaskManager.Data.models.PeopleWhoCanHelp
 
 @{
-    ViewBag.Title = "AddContacts";
+    ViewBag.Title = "CreateContact";
 }
 
 <h2>Add new contact</h2>
 
-@using (Html.BeginForm("AddContacts", "Home")) 
+@using (Html.BeginForm("CreateContact", "Home")) 
 {
     @Html.AntiForgeryToken()
     

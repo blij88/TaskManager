@@ -12,7 +12,7 @@ namespace TaskManager.Data
         void Update(Task task);
 
         List<PeopleWhoCanHelp> GetAllContacts();
-        void AddContact(PeopleWhoCanHelp peopleWhoCanHelp);
+        void CreateContact(PeopleWhoCanHelp peopleWhoCanHelp);
         PeopleWhoCanHelp GetContact(int id);
         void DeleteContact(PeopleWhoCanHelp peopleWhoCanHelp);
         void UpdateContact(PeopleWhoCanHelp peopleWhoCanHelp);
