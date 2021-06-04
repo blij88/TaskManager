@@ -7,6 +7,6 @@ namespace TaskManager.Data
     {
         public DbSet<Chore> Tasks { get; set; }
         public DbSet<PeopleWhoCanHelp> PeopleWhoCanHelps { get; set; }
-        public DbSet<File> Files { get; set; }
+        public DbSet<FilePath> FilePaths { get; set; }
     }
 }

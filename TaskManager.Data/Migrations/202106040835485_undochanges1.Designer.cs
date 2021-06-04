@@ -7,13 +7,13 @@ namespace TaskManager.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class AddedContacts : IMigrationMetadata
+    public sealed partial class undochanges1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedContacts));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(undochanges1));
         
         string IMigrationMetadata.Id
         {
-            get { return "202105271029210_AddedContacts"; }
+            get { return "202106040835485_undochanges1"; }
         }
         
         string IMigrationMetadata.Source

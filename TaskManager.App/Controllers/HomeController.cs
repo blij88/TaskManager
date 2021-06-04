@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
 using TaskManager.App.ViewModels;
@@ -53,22 +54,15 @@ namespace TaskManager.App.Controllers
             {
                 if (upload != null && upload.ContentLength > 0)
                 {
-                    var file = new File
+                    var file = new FilePath
                     {
-                        FileName = System.IO.Path.GetFileName(upload.FileName),
-                        ContentType = upload.ContentType,
-                        chore = chore
+                        FileName = Guid.NewGuid().ToString() + System.IO.Path.GetExtension(upload.FileName),
                     };
-                    using (var reader = new System.IO.BinaryReader(upload.InputStream))
-                    {
-                        file.Content = reader.ReadBytes(upload.ContentLength);
-                    }
-                    Db.AddFile(file);
-
-                    chore.Files.Add(file);
+                    chore.FilePaths = new List<FilePath>();
+                    chore.FilePaths.Add(file);
                 }
+                Db.Update(chore);                
 
-                Db.Update(chore);
                 return RedirectToAction("Details", new { id = chore.Id });
             }
             return View(chore);
@@ -82,14 +76,14 @@ namespace TaskManager.App.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Chore task)
+        public ActionResult Create(Chore chore)
         {
             if (ModelState.IsValid)
             {
-                Db.Add(task);
+                Db.Add(chore);
                 return RedirectToAction("Overview");
             }
-            return View(task);
+            return View(chore);
         }
 
         public ActionResult DetailsContact(int id)

@@ -27,18 +27,12 @@ namespace TaskManager.Data
 
         public Chore Get(int id)
         {
-            return db.Tasks.Include(t => t.Files).FirstOrDefault(t => t.Id == id);
+            return db.Tasks.Include(t => t.FilePaths).FirstOrDefault(t => t.Id == id);
         }
 
         public List<Chore> GetAll()
         {
             return db.Tasks.OrderBy(s => s.StartDate).ToList();
-        }
-
-        public void AddFile(File file)
-        {
-            db.Files.Add(file);
-            db.SaveChanges();
         }
 
         public void Update(Chore task)
@@ -75,6 +69,11 @@ namespace TaskManager.Data
             var entry = db.Entry(peopleWhoCanHelp);
             entry.State = EntityState.Modified;
             db.SaveChanges();
+        }
+
+        public FilePath GetFile(int id)
+        {
+            return db.FilePaths.FirstOrDefault(t => t.FilePathId == id);
         }
     }
 }

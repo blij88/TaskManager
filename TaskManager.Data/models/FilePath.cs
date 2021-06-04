@@ -7,16 +7,11 @@ using System.Threading.Tasks;
 
 namespace TaskManager.Data.models
 {
-
-    public class File
+    public class FilePath
     {
-        public int FileId { get; set; }
+        public int FilePathId { get; set; }
         [StringLength(255)]
         public string FileName { get; set; }
-        [StringLength(100)]
-        public string ContentType { get; set; }
-        public byte[] Content { get; set; }
-        [Required]
-        public virtual Chore chore { get; set; }
     }
 }
+    

@@ -50,16 +50,16 @@
             @Html.DisplayFor(model => model.EndDate)
         </dd>
 
-        @if (Model.Files.Count > 0)
+        @if (Model.FilePaths.Count > 0)
         {
             <dt>
                 Files
             </dt>
         }
-        @foreach (var item in Model.Files)
+        @foreach (var item in Model.FilePaths)
         {
             <dd>
-                <img src="@item.FileName" alt="file" />
+                <img src="~/Images/@item.FileName" alt="" />
             </dd>
         }
 

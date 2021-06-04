@@ -7,13 +7,13 @@ namespace TaskManager.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class AddLateToChore : IMigrationMetadata
+    public sealed partial class init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddLateToChore));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
         
         string IMigrationMetadata.Id
         {
-            get { return "202106030855576_AddLateToChore"; }
+            get { return "202106031312044_init"; }
         }
         
         string IMigrationMetadata.Source

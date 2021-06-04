@@ -55,32 +55,29 @@
     <Compile Include="Data\ITaskData.cs" />
     <Compile Include="Data\TaskDataRepository.cs" />
     <Compile Include="Data\TaskManagerDbContext.cs" />
-    <Compile Include="Migrations\202105210922428_InitialCreate.cs" />
-    <Compile Include="Migrations\202105210922428_InitialCreate.designer.cs">
-      <DependentUpon>202105210922428_InitialCreate.cs</DependentUpon>
+    <Compile Include="Logic\LateLogic.cs" />
+    <Compile Include="Migrations\202106031312044_init.cs" />
+    <Compile Include="Migrations\202106031312044_init.designer.cs">
+      <DependentUpon>202106031312044_init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202105271029210_AddedContacts.cs" />
-    <Compile Include="Migrations\202105271029210_AddedContacts.designer.cs">
-      <DependentUpon>202105271029210_AddedContacts.cs</DependentUpon>
+    <Compile Include="Migrations\202106031333424_init1.cs" />
+    <Compile Include="Migrations\202106031333424_init1.designer.cs">
+      <DependentUpon>202106031333424_init1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202106010901082_AddFile.cs" />
-    <Compile Include="Migrations\202106010901082_AddFile.designer.cs">
-      <DependentUpon>202106010901082_AddFile.cs</DependentUpon>
+    <Compile Include="Migrations\202106040828311_undochanges.cs" />
+    <Compile Include="Migrations\202106040828311_undochanges.designer.cs">
+      <DependentUpon>202106040828311_undochanges.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202106011025327_AddFile2.cs" />
-    <Compile Include="Migrations\202106011025327_AddFile2.designer.cs">
-      <DependentUpon>202106011025327_AddFile2.cs</DependentUpon>
+    <Compile Include="Migrations\202106040833232_FileChanges1.cs" />
+    <Compile Include="Migrations\202106040833232_FileChanges1.designer.cs">
+      <DependentUpon>202106040833232_FileChanges1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202106011050545_AddFiles3.cs" />
-    <Compile Include="Migrations\202106011050545_AddFiles3.designer.cs">
-      <DependentUpon>202106011050545_AddFiles3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106030855576_AddLateToChore.cs" />
-    <Compile Include="Migrations\202106030855576_AddLateToChore.designer.cs">
-      <DependentUpon>202106030855576_AddLateToChore.cs</DependentUpon>
+    <Compile Include="Migrations\202106040835485_undochanges1.cs" />
+    <Compile Include="Migrations\202106040835485_undochanges1.designer.cs">
+      <DependentUpon>202106040835485_undochanges1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="models\File.cs" />
+    <Compile Include="models\FilePath.cs" />
     <Compile Include="models\PeopleWhoCanHelp.cs" />
     <Compile Include="models\Progress.cs" />
     <Compile Include="models\Chore.cs" />
@@ -91,23 +88,20 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202105210922428_InitialCreate.resx">
-      <DependentUpon>202105210922428_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202106031312044_init.resx">
+      <DependentUpon>202106031312044_init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105271029210_AddedContacts.resx">
-      <DependentUpon>202105271029210_AddedContacts.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202106031333424_init1.resx">
+      <DependentUpon>202106031333424_init1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106010901082_AddFile.resx">
-      <DependentUpon>202106010901082_AddFile.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202106040828311_undochanges.resx">
+      <DependentUpon>202106040828311_undochanges.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106011025327_AddFile2.resx">
-      <DependentUpon>202106011025327_AddFile2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202106040833232_FileChanges1.resx">
+      <DependentUpon>202106040833232_FileChanges1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106011050545_AddFiles3.resx">
-      <DependentUpon>202106011050545_AddFiles3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106030855576_AddLateToChore.resx">
-      <DependentUpon>202106030855576_AddLateToChore.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202106040835485_undochanges1.resx">
+      <DependentUpon>202106040835485_undochanges1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

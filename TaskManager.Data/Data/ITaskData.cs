@@ -17,6 +17,6 @@ namespace TaskManager.Data
         void DeleteContact(PeopleWhoCanHelp peopleWhoCanHelp);
         void UpdateContact(PeopleWhoCanHelp peopleWhoCanHelp);
 
-        void AddFile(File file);
+        FilePath GetFile(int FileId);
     }
 }

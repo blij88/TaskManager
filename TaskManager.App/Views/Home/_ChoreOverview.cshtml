@@ -1,13 +1,11 @@
 ﻿@model TaskManager.Data.models.Chore
-    @using TaskManager.Data.models
-
-<div class="panel panel-@Model.Late()">
+<div class="panel panel-@Model.Late(Model)">
     <div class="panel-heading">
         <h4 class="panel-title">@Model.Name</h4>
     </div>
     <div class="panel-body">
         <p>@Model.Description</p>
-        <p>@Model.StartDate.ToString("D") - @Model.EndDate.ToString("D")</p>
+        <p style="font-size:smaller">@Model.StartDate.ToString("D") - @Model.EndDate.ToString("D")</p>
     </div>
     <div class="panel-footer">
         @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
@@ -15,4 +13,5 @@
         @Html.ActionLink("Delete", "Delete", new { id = Model.Id })
     </div>
 </div>
+
 

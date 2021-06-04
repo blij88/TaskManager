@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using TaskManager.App.Logic;
 
 namespace TaskManager.Data.models
 {
-    public class Chore
+    public class Chore : LateLogic
     {
         public int Id { get; set; }
         [Required]
@@ -24,17 +25,6 @@ namespace TaskManager.Data.models
         [Display(Name = "Finished")]
         public DateTime EndDate { get; set; }
         public Progress Progress { get; set; }
-        public ICollection<File> Files { get; set; }
-        public string Late()
-        {
-            if ((Progress == Progress.ToDo && DateTime.Today>StartDate )|| (Progress!= Progress.Done && EndDate < DateTime.Today))
-            {
-                return "danger";
-            }
-            else
-            {
-                return "info";
-            }
-        }
+        public ICollection<FilePath> FilePaths { get; set; }
     }
 }
